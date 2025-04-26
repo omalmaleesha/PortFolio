@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Omal Maleesha, Trainee Software Engineer">
     <title>Software Engineer Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -13,12 +13,22 @@
     <nav>
         <div class="container">
             <div class="logo">DevPortfolio</div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" class="smooth-scroll">Home</a></li>
+                <li><a href="#about" class="smooth-scroll">About</a></li>
+                <li><a href="#projects" class="smooth-scroll">Projects</a></li>
+                <li><a href="#contact" class="smooth-scroll">Contact</a></li>
             </ul>
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-toggle" aria-label="Toggle Dark Mode">
+                <label for="theme-toggle" class="theme-toggle-label">
+                    <i class="fas fa-sun theme-icon sun"></i>
+                    <i class="fas fa-moon theme-icon moon"></i>
+                </label>
+            </div>
         </div>
     </nav>
 
@@ -28,31 +38,38 @@
                 <h1>Hi, I'm <span class="highlight">Omal Maleesha</span></h1>
                 <p class="subtitle">Trainee Software Engineer</p>
                 <div class="cta-buttons">
-                    <a href="#projects" class="btn primary">View Work</a>
-                    <a href="#contact" class="btn secondary">Contact Me</a>
+                    <a href="#projects" class="btn primary smooth-scroll">View Work</a>
+                    <a href="#contact" class="btn secondary smooth-scroll">Contact Me</a>
                 </div>
             </div>
             <div class="profile-photo" data-aos="fade-left" data-aos-delay="400">
-                <img src="img/profile.jpg" alt="Profile Photo">
+                <img src="img/profile.jpg" alt="Profile Photo of Omal Maleesha" loading="lazy">
             </div>
         </div>
     </section>
 
     <section id="about" class="about">
         <div class="container">
-          <h2 data-aos="fade-down">About Me</h2>
-          <div class="about-content" data-aos="fade-up">
-            <div class="about-text">
-              <p>Full stack developer with 1 year of experience building scalable web applications.</p>
-              <div class="skills" data-aos="zoom-in">
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">AWS</span>
-              </div>
+            <h2 data-aos="fade-down">About Me</h2>
+            <div class="about-content" data-aos="fade-up">
+                <div class="about-text">
+                    <p>I'm a full-stack developer with a year of experience building scalable web applications, but my journey in software development is driven by a deep passion for coding and problem-solving. I thrive on the thrill of turning ideas into functional, elegant solutions and constantly explore new technologies to push my skills further.</p>
+                    <div class="passion-statement">
+                        <p>Software development is my playground—whether it's crafting seamless user experiences with React, optimizing backend performance with Node.js, or diving into the intricacies of databases like PostgreSQL, I love every moment of creating something impactful. I'm an active contributor to open-source projects on GitHub, where I learn from the community and share my own solutions, and I’m always excited to tackle real-world challenges through code.</p>
+                    </div>
+                    <div class="skills" data-aos="zoom-in">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">GraphQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
     </section>
 
@@ -62,26 +79,35 @@
             <div class="project-grid">
                 <div class="project-card" data-aos="zoom-in">
                     <h3>E-Commerce Platform</h3>
-                    <p>Full-stack e-commerce solution built with React and Node.js. This platform allows users to browse, add to cart, and complete purchases securely.</p>
+                    <p>Full-stack e-commerce solution with user authentication and payment integration. I built this to explore the complexities of secure, scalable web apps, fueled by my love for creating seamless user experiences.</p>
+                    <div class="tech-stack">
+                        <span>React</span> <span>Node.js</span> <span>MongoDB</span>
+                    </div>
                     <div class="project-links">
-                        <a href="#" class="btn small">View Project</a>
-                        <a href="#" class="btn small secondary">GitHub</a>
+                        <a href="https://example.com/ecommerce" target="_blank" class="btn small">View Project</a>
+                        <a href="https://github.com/username/ecommerce" target="_blank" class="btn small secondary">GitHub</a>
                     </div>
                 </div>
                 <div class="project-card" data-aos="zoom-in">
                     <h3>Weather Forecast Dashboard</h3>
-                    <p>A dynamic weather forecasting dashboard built using JavaScript and API integration to provide up-to-date weather information and forecasts.</p>
+                    <p>A dynamic dashboard using real-time weather API data. I created this project to dive into API integrations and visualize data in a way that’s both functional and fun, reflecting my passion for interactive apps.</p>
+                    <div class="tech-stack">
+                        <span>JavaScript</span> <span>HTML/CSS</span> <span>API</span>
+                    </div>
                     <div class="project-links">
-                        <a href="#" class="btn small">View Project</a>
-                        <a href="#" class="btn small secondary">GitHub</a>
+                        <a href="https://example.com/weather" target="_blank" class="btn small">View Project</a>
+                        <a href="https://github.com/username/weather" target="_blank" class="btn small secondary">GitHub</a>
                     </div>
                 </div>
                 <div class="project-card" data-aos="zoom-in">
                     <h3>Blog Platform</h3>
-                    <p>A simple blog platform that allows users to create, edit, and publish their blog posts. Built with Node.js and Express, using MongoDB for storage.</p>
+                    <p>A content management system for blogging. This project was born from my enthusiasm for building tools that empower content creators, combining my love for backend systems and clean code.</p>
+                    <div class="tech-stack">
+                        <span>Node.js</span> <span>Express</span> <span>MongoDB</span>
+                    </div>
                     <div class="project-links">
-                        <a href="#" class="btn small">View Project</a>
-                        <a href="#" class="btn small secondary">GitHub</a>
+                        <a href="https://example.com/blog" target="_blank" class="btn small">View Project</a>
+                        <a href="https://github.com/username/blog" target="_blank" class="btn small secondary">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -92,11 +118,13 @@
         <div class="container">
             <h2 data-aos="fade-down">Get In Touch</h2>
             <div class="contact-content" data-aos="fade-up">
-                <form class="contact-form" data-aos="fade-up" data-aos-delay="300">
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Message" required></textarea>
+                <p style="text-align: center; margin-bottom: 2rem;">I’m always excited to connect with fellow developers, discuss innovative projects, or explore new opportunities in software development. Drop me a message!</p>
+                <form id="contact-form" class="contact-form" data-aos="fade-up" data-aos-delay="300" action="https://formspree.io/f/your-form-id" method="POST">
+                    <input type="text" name="name" placeholder="Name" required aria-label="Your Name">
+                    <input type="email" name="email" placeholder="Email" required aria-label="Your Email">
+                    <textarea name="message" placeholder="Message" required aria-label="Your Message"></textarea>
                     <button type="submit" class="btn primary">Send Message</button>
+                    <div id="form-message" class="form-message"></div>
                 </form>
             </div>
         </div>
@@ -104,21 +132,87 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 DevPortfolio. All rights reserved.</p>
-            <p>omalmaleesha03@gmail.com</p>
+            <p>© 2025 DevPortfolio. All rights reserved.</p>
+            <p><a href="/cdn-cgi/l/email-protection#8ca9f4ede1fce0e9cca9e1ede5e0a2efe3e1"><span class="__cf_email__" data-cfemail="3c59445d514c50597c59515d5550125f5351">[email protected]</span></a></p>
             <div class="social-links">
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com" target="_blank" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </footer>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        // Initialize AOS
         AOS.init();
+
+        // Smooth Scrolling
+        document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check saved theme on load
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.checked = true;
+        }
+
+        // Toggle theme on checkbox change
+        themeToggle.addEventListener('change', () => {
+            body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+
+        // Contact Form Handling
+        const form = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    formMessage.textContent = 'Message sent successfully!';
+                    formMessage.style.color = 'green';
+                    form.reset();
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                formMessage.textContent = 'Error sending message. Please try again.';
+                formMessage.style.color = 'red';
+            }
+            setTimeout(() => formMessage.textContent = '', 3000);
+        });
     </script>
 </body>
 </html>
-
