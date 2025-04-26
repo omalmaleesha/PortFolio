@@ -7,14 +7,14 @@
   --text-color: #1f2a44; /* Dark slate for readability */
   --shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
   --border-radius: 8px;
-  --card-bg: rgba(255, 255, 255, 0.9); /* Semi-transparent cards */
-  --form-bg: rgba(255, 255, 255, 0.9); /* Semi-transparent form */
+  --card-bg: rgba(255, 255, 255, 0.95); /* Slightly more opaque for readability */
+  --form-bg: rgba(255, 255, 255, 0.95); /* Slightly more opaque form */
   --form-border: #e2e8f0;
   --footer-text: #ffffff;
-  --passion-bg: rgba(241, 245, 249, 0.9); /* Semi-transparent passion statement */
+  --passion-bg: rgba(241, 245, 249, 0.95); /* Slightly more opaque passion statement */
   --passion-border: #e2e8f0;
-  --nav-bg: rgba(255, 255, 255, 0.85); /* Semi-transparent navbar */
-  --nav-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(241, 245, 249, 0.85));
+  --nav-bg: rgba(255, 255, 255, 0.9); /* Slightly more opaque navbar */
+  --nav-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(241, 245, 249, 0.9));
 }
 
 /* Dark Mode Variables */
@@ -25,14 +25,14 @@ body.dark-mode {
   --background-color: transparent; /* Transparent to show 3D animation */
   --text-color: #e2e8f0; /* Light gray for readability */
   --shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  --card-bg: rgba(51, 65, 85, 0.9); /* Semi-transparent dark cards */
-  --form-bg: rgba(45, 55, 72, 0.9); /* Semi-transparent dark form */
+  --card-bg: rgba(51, 65, 85, 0.95); /* Slightly more opaque dark cards */
+  --form-bg: rgba(45, 55, 72, 0.95); /* Slightly more opaque dark form */
   --form-border: #4b5563;
   --footer-text: #e2e8f0;
-  --passion-bg: rgba(45, 55, 72, 0.9); /* Semi-transparent dark passion statement */
+  --passion-bg: rgba(45, 55, 72, 0.95); /* Slightly more opaque dark passion statement */
   --passion-border: #4b5563;
-  --nav-bg: rgba(30, 41, 59, 0.85); /* Semi-transparent dark navbar */
-  --nav-gradient: linear-gradient(135deg, rgba(30, 41, 59, 0.85), rgba(45, 55, 72, 0.85));
+  --nav-bg: rgba(30, 41, 59, 0.9); /* Slightly more opaque dark navbar */
+  --nav-gradient: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(45, 55, 72, 0.9));
 }
 
 /* Reset & Base Styles */

@@ -174,28 +174,89 @@
                 : '<i class="fas fa-bars"></i>';
         });
 
+        // Three.js 3D Particle Animation
+        const canvas = document.getElementById('background-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+
+        // Create particles
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particleCount = 5000;
+        const posArray = new Float32Array(particleCount * 3);
+        const colorsArray = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount * 3; i += 3) {
+            posArray[i] = (Math.random() - 0.5) * 100;
+            posArray[i + 1] = (Math.random() - 0.5) * 100;
+            posArray[i + 2] = (Math.random() - 0.5) * 100;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorsArray, 3));
+
+        const particleMaterial = new THREE.PointsMaterial({
+            size: 0.1,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.6
+        });
+
+        const particles = new THREE.Points(particlesGeometry, particleMaterial);
+        scene.add(particles);
+
+        camera.position.z = 50;
+
+        // Function to update particle colors based on theme
+        function updateParticleColors() {
+            const colors = particlesGeometry.attributes.color.array;
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                colors[i] = isDarkMode ? 0.2 : 0.8;     // Red: muted blue-green for dark, bright blue for light
+                colors[i + 1] = isDarkMode ? 0.4 : 0.9; // Green: deeper green for dark, soft blue for light
+                colors[i + 2] = isDarkMode ? 0.6 : 1.0; // Blue: brighter blue for dark, white for light
+            }
+            particlesGeometry.attributes.color.needsUpdate = true;
+        }
+
         // Dark Mode Toggle
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
 
-        // Check saved theme on load
+        // Check saved theme on load and apply
         if (localStorage.getItem('theme') === 'dark') {
             body.classList.add('dark-mode');
             themeToggle.checked = true;
+        } else {
+            body.classList.remove('dark-mode');
+            themeToggle.checked = false;
         }
+
+        // Initialize particle colors based on initial theme
+        updateParticleColors();
 
         // Toggle theme on checkbox change
         themeToggle.addEventListener('change', () => {
             body.classList.toggle('dark-mode');
             localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
-            // Update particle colors
-            const colors = particlesGeometry.attributes.color.array;
-            for (let i = 0; i < particleCount * 3; i += 3) {
-                colors[i] = body.classList.contains('dark-mode') ? 0.5 : 1.0;
-                colors[i + 1] = body.classList.contains('dark-mode') ? 0.7 : 0.9;
-                colors[i + 2] = body.classList.contains('dark-mode') ? 0.2 : 1.0;
-            }
-            particlesGeometry.attributes.color.needsUpdate = true;
+            updateParticleColors();
+        });
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.rotation.y += 0.001;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
         // Contact Form Handling
@@ -222,59 +283,6 @@
                 formMessage.style.color = 'red';
             }
             setTimeout(() => formMessage.textContent = '', 3000);
-        });
-
-        // Three.js 3D Particle Animation
-        const canvas = document.getElementById('background-canvas');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-
-        // Create particles
-        const particlesGeometry = new THREE.BufferGeometry();
-        const particleCount = 5000;
-        const posArray = new Float32Array(particleCount * 3);
-        const colorsArray = new Float32Array(particleCount * 3);
-
-        for (let i = 0; i < particleCount * 3; i += 3) {
-            posArray[i] = (Math.random() - 0.5) * 100;
-            posArray[i + 1] = (Math.random() - 0.5) * 100;
-            posArray[i + 2] = (Math.random() - 0.5) * 100;
-            colorsArray[i] = body.classList.contains('dark-mode') ? 0.5 : 1.0;
-            colorsArray[i + 1] = body.classList.contains('dark-mode') ? 0.7 : 0.9;
-            colorsArray[i + 2] = body.classList.contains('dark-mode') ? 0.2 : 1.0;
-        }
-
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorsArray, 3));
-
-        const particleMaterial = new THREE.PointsMaterial({
-            size: 0.1,
-            vertexColors: true,
-            transparent: true,
-            opacity: 0.6
-        });
-
-        const particles = new THREE.Points(particlesGeometry, particleMaterial);
-        scene.add(particles);
-
-        camera.position.z = 50;
-
-        // Animation loop
-        function animate() {
-            requestAnimationFrame(animate);
-            particles.rotation.y += 0.001;
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
         });
     </script>
 </body>
